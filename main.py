@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug 17 19:20:58 2021
+
+@author: SOHAM
+"""
+
 import pymysql
 import csv
 mydb = pymysql.connect(
@@ -194,18 +201,19 @@ def order():
     print("ORDER PLACED SUCCESSFULLY!!")
     print()
     print("THANK YOU FOR SHOPPING FROM US!!")
-    bill()
-    update(c)
-
-  else:
-    print("Do you want to order again?")
+    print("WOULD YOU LIKE TO CONTINUE?")
     a=input().lower()
     if a=="yes" or a=="y":
       print()
       product_list()
     elif a=="no" or a=="n":
       print()
-      print("THANK YOU")
+      print("THANK YOU \nAND HAVE A NICE DAY AHEAD!")
+    bill()
+    update(c)
+
+  else:
+    agn=order()
 
 def bill():
   sql=f"SELECT * FROM {name}.items"
